@@ -3,10 +3,10 @@ package com.app.praktikum_kel1_2.service.api
 import com.app.praktikum_kel1_2.model.request.LoginRequest
 import com.app.praktikum_kel1_2.model.request.RegisterRequest
 import com.app.praktikum_kel1_2.model.response.LoginResponse
+import com.app.praktikum_kel1_2.model.response.NotesResponse
 import com.app.praktikum_kel1_2.model.response.RegisterResponse
 import retrofit2.Response
-import retrofit2.http.Body
-import retrofit2.http.POST
+import retrofit2.http.*
 
 /**
  * Interface `ApiService` mendefinisikan endpoint-endpoint API
@@ -33,4 +33,7 @@ interface ApiService {
      */
     @POST("/api/login")
     suspend fun login(@Body request: LoginRequest): Response<LoginResponse>
+
+    @GET("/api/notes")
+    suspend fun getAllNotes(): NotesResponse
 }
